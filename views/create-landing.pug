@@ -1,0 +1,50 @@
+extends layout.pug
+
+block content
+	#project-body.project-body
+		header.project-header
+			h2.project-title= title 
+			.buttons-wrapper
+				a(href="/create-landing/save")#save.btn.btn-save Guardar
+				a(href="/logout").btn.btn-logout salir
+		section.project-workspace-container
+			include components/toolbar.pug
+			include components/configbar.pug
+			include components/element-option-bar.pug
+			.buttons-wrapper
+				button(type="button").btn.btn-custom
+					i.fas.fa-undo
+				button(type="button").btn.btn-custom
+					i.fas.fa-redo
+				button(type="button")#btn-preview.btn.btn-custom Vista previa
+			.workboard#workboard.workboard-initial
+	#modal-select-img.modal.fade.bd-example-modal-lg(tabindex="-1", role="dialog")
+		.modal-dialog.modal-xl.modal-dialog-centered
+			.modal-content
+				.modal-header
+					h5 Seleccionar imagen
+					button.close(type="button", data-dismiss="modal", aria-label="Close")
+						span(aria-hidden="true") 
+							i.fas.fa-times
+				.modlal-body
+					table.table
+						thead
+							tr
+								th
+								th(scope="col") Nombre
+								th(scope="col") Tamaño
+								td
+						tbody#modal-files-content
+							each file in files
+								tr(data-imglocation=`/dist/files/${userDir}/${file.name}`, data-bg="image").img-files
+									td.img-preview-td
+										img(src=`/dist/files/${userDir}/${file.name}`).img-preview
+									td= file.name
+									td= file.size
+									td
+				.modal-footer
+					button.btn.btn-primary#upload-image Subir
+					button.btn.btn-secondary#select-image Seleccionar imagen
+					form.form-hidden(action="/upload", method="POST", enctype="multipart/form-data", id="upload-img")
+						input.input__file.input-hidden#input-image(type="file", name="file" data-userFile-path=`/dist/files/${userDir}`)
+	script(src="./dist/js/main.bundle.js")

@@ -1,0 +1,174 @@
+#element-option-bar-wrapper.element-option-bar-wrapper
+  #element-option-bar-scroll-container
+    nav#element-option-bar.element-option-bar
+      #element-option-bar-list.element-option-bar-list
+        ul#element-panel
+          li.element-panel#delete-element
+            span
+              i.fas.fa-trash
+          li.element-panel#duplicate-element
+            span
+              i.fas.fa-clone
+        form(action="/", method="POST", name="form-boxedit", id="form-box-edit", class="form-container")
+          .form-row.input-group
+            .col-12
+              h5 Editando: #[span#current-element-editing]
+          .form-row.input-group.sectionID
+            .col-12
+              h5 ID de la sección
+              input#sectionID.form-control.input.input__sectionid(type="text", name="section-id", value=" " placeholder="mySection")
+              .invalid-feedback El ID no puede estart vacio.
+              button(type="button")#saveID.btn.btn-custom Guardar
+          .form-row.input-group.nav-option
+            .col-12
+              h5 Logo
+                button.btn.btn-custom#add-logo-image(type="button", data-toggle="modal", data-target=".bd-example-modal-lg") Insertar Imagen
+          .form-row.input-group.nav-option
+            .col-12 
+              #add-nav-item-container
+                h5 Navigation item
+                button(type="button")#add-nav-item
+                  i.far.fa-plus-square
+            .col-12#navOptionsSortable
+              div.nav-items-option-wrapper(data-navitemindex="0")
+                div.nav-item-input-wrapper
+                  span.sort-nav-item
+                    i.fas.fa-grip-lines-vertical
+                  input(type="text" placeholder="Readonly input here…" value="Home" readonly).nav-item-input.form-control
+                  span.delete-nav-item
+                    i.fas.fa-times
+                .collapse.nav-item-options
+                  label.label Nombre
+                    input(type="text" value="HOME" data-navedit="name").form-control.nav-item-name.nav-item-edit
+                  label.label Evento
+                    select(data-navedit="event").form-control.nav-item-event.nav-item-edit
+                      option(value="1") Abrir nuevo enlace
+                      option(value="2") Saltar a sección
+                  label.label
+                    select(data-navedit="section").form-control.sections-list.nav-item-edit.nav-item-event-section
+                      option(value="0") ninguno
+                  label.label
+                    input(type="text" value="" placeholder="www.mypage.com" data-navedit="link").form-control.nav-item-event-link.nav-item-edit
+          .form-row.form-option
+            .col-12 
+              #add-form-item-container
+                h5 Campos
+                button(type="button")#add-form-item
+                  i.far.fa-plus-square
+            .col-12#formOptionsSortable
+              div.form-items-option-wrapper(data-formitemindex="0")
+                div.form-item-input-wrapper
+                  span.sort-form-item
+                    i.fas.fa-grip-lines-vertical
+                  input(type="text" placeholder="Readonly input here…" value="Email" readonly).form-item-input.form-control
+                  span.delete-form-item
+                    i.fas.fa-times
+                .collapse.form-item-options
+                  label.label Nombre
+                    input(type="text" value="Email" data-formedit="name").form-control.form-item-label.form-item-edit
+                  label.label Placeholder
+                    input(type="text" value="email@vieweb.com" data-formedit="placeholder").form-control.form-item-placeholder.form-item-edit
+                  .label
+                    .custom-control.custom-checkbox.custom-control-inline
+                      input(type="checkbox" id="requiredForm" name="requiredForm" data-formedit="required" class="custom-control-input form-item-edit" checked)
+                      label.custom-control-label(for="requiredForm") Requerido
+                    .custom-control.custom-checkbox.custom-control-inline
+                      input(type="checkbox" id="hideLabelForm" name="hideLabelForm" data-formedit="hidelabel" class="custom-control-input form-item-edit")
+                      label(class="custom-control-label" for="hideLabelForm") Esconder etiqueta
+                  label.label Tipo de input
+                    select(name="input-type" data-formedit="input-type")#input-type.form-control.form-item-edit.form-item-type
+                      option(value="email") Email
+                      option(value="text") Texto
+                      option(value="number") Numero
+          .form-row.input-group
+            .col-12
+              h5 Ancho de la caja
+              label(for="box-width-auto", class="label")
+                input(type="checkbox", name="box-width-auto", id="box-width-auto",class="input-checkbox input-checkbox__w", checked="checked") 
+                span auto
+              input(type="number", name="box-width", id="box-width", class="form-control input input__box-size", min="1", max="100", value="100")
+            .col-12
+              .form-check.form-check-inline
+                .custom-control.custom-radio
+                  input.form-check-input(type="radio" name="align"  id="align-left" class="input-radio__align custom-control-input" value="left")
+                  label.form-check-label.custom-control-label(for="align-left") Izquierda
+              .form-check.form-check-inline
+                .custom-control.custom-radio
+                  input.form-check-input(type="radio" name="align"  id="align-center" class="input-radio__align custom-control-input" value="center")
+                  label.form-check-label.custom-control-label(for="align-center") Centro
+              .form-check.form-check-inline
+                .custom-control.custom-radio
+                  input.form-check-input(type="radio" name="align"  id="align-right" class="input-radio__align custom-control-input" value="right")
+                  label.form-check-label.custom-control-label(for="align-right") Derecha
+          .form-row.input-group-multiple
+            .col-12
+              h5 Margen interno
+            .col-6
+              input#padding-box-top.form-control.input.input__padding(type="number", name="padding-box-top", value="0")
+            .col-6
+              input#padding-box-right.form-control.input.input__padding(type="number", name="padding-box-right", value="0")
+            .col-6
+              input#padding-box-bottom.form-control.input.input__padding(type="number", name="padding-box-bottom", value="0")
+            .col-6
+              input#padding-box-left.form-control.input.input__padding(type="number", name="padding-box-left", value="0")
+          .form-row.input-group-multiple
+            .col-12
+              h5 Margen externo
+            .col-6
+              input#margin-box-top.form-control.input.input__margin(type="number", name="margin-box-top", value="0")
+            .col-6
+              input#margin-box-right.form-control.input.input__margin(type="number", name="margin-box-right", value="0")
+            .col-6
+              input#margin-box-bottom.form-control.input.input__margin(type="number", name="margin-box-bottom", value="0")
+            .col-6
+              input#margin-box-left.form-control.input.input__margin(type="number", name="margin-box-left", value="0")
+          .form-row.input-group-multiple
+            .col-12
+              h5 Color de fondo
+            .col-12
+              label#bg-color-picker-label(for="bg-color-picker")
+              #bg-color-picker-dropdown
+                #bgColorPicker
+                input#bg-color-picker.form-control.input__bg-color-picker(value="#FFFFFF")
+          .form-row.input-group
+            .col-12
+              h5 Imagen de fondo
+                button.btn.btn-custom#bg-image(type="button", data-toggle="modal", data-target=".bd-example-modal-lg") Insertar Imagen
+              #bgImagePreview
+                div
+            .col-12
+              h5 Bordes
+            .col-6
+              label#border-color-picker-label(for="border-color")
+              #border-color-picker-dropdown
+                #borderColorPicker
+                input#border-color.form-control.input.input__border-color(type="text", name="border-color", value="#FFFFFF")
+            .col-6
+              input#border-width.form-control.input.input__border-width(type="number", name="border-width", value="0")
+            .col-6
+              select#border-style.form-control.input-select.input-select__border-style(name="border-style")
+                option(value="none") ninguno
+            .col-6
+              input#border-radius.form-control.input.input__border-radius(type="number", name="border-radius", value="0")
+          .form-row.input-group
+            .col-12
+              h5 Sombras
+            .col-6
+              label X:
+                input#boxshadow-x.form-control.input.input__boxshadow(type="number", name="boxshadow-x", value="0")
+            .col-6
+              label Y:
+                input#boxshadow-y.form-control.input.input__boxshadow(type="number", name="boxshadow-y", value="0")
+            .col-6
+              label Blur
+                input#boxshadow-blur.form-control.input.input__boxshadow(type="number", name="boxshadow-blur", value="0")
+            .col-6
+              label Spread
+                input#boxshadow-spread.form-control.input.input__boxshadow(type="number", name="boxshadow-spread", value="0")
+            .col-12
+              label#boxshadow-color-picker-label(for="boxshadow-color-picker")
+              #boxshadow-color-picker-dropdown
+                #boxshadowColorPicker
+                input#boxshadow-color-picker.form-control.input.input__boxshadow(value="#FFFFFF")
+  button(type="button")#option-bar-toggler 
+    i.fas.fa-angle-right

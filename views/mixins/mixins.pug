@@ -1,0 +1,4 @@
+mixin toolbutton(title, name, icon)
+  li.toolbar-list-item 
+    span(id=`${name}`, class='toolbar-button') #[i(class=`${icon}`)]
+      span.toolbar-button-title= title

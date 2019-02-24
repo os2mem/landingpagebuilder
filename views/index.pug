@@ -1,0 +1,74 @@
+extends layout.pug
+
+block content
+	.modal.fade#downloadApk(tabindex="-1" role="dialog" aria-labelledby="downloadApk" aria-hidden="true")
+		.modal-dialog.modal-dialog-centered(role="document")
+			.modal-content
+				.modal-body(style="display:flex;justify-content:center;align-items:center;")
+					img(src="./dist/img/chart.png", alt="" style="width:400px; margin:0 auto;")
+	include components/nav.pug
+	header
+	section.container-fluid
+		div.jumbotron.jumbotron-custom
+			.overlay
+			h1.display-4 Construye tus propias langind pages!
+			p.lead Vieweb es la forma más fácil de construir tu página de aterrizaje para tu negocio!
+			p No necesitas tener ningún conocimiento de programación.
+			a.btn.btn-custom-primary.btn-lg(href="/signup" role="button") Registrarse
+			a.btn.btn-custom-secondary.btn-lg(href="/login" role="button") Entrar
+	section.container-fluid#pricing
+		.row
+			.col-12.col-md-4.mb-2
+				.card.custom-card
+					.card-body
+						h2.card-title Gratis
+						h4.card-price 0€
+						ul.list-group.list-group-flush
+							li.list-group-item 1 workspace
+							li.list-group-item 5000 visitas
+							li.list-group-item 1GB de almacenamiento
+							li.list-group-item Dominio propio
+						a(href="/signup").btn.btn-custom Registrarse
+			.col-12.col-md-4.mb-2
+				.card.custom-card.card-highlight
+					.card-body
+						h2.card-title Premium
+						h4.card-price 25
+							span.month €/mes
+						ul.list-group.list-group-flush
+							li.list-group-item 1 workspace
+							li.list-group-item 10000 visitas
+							li.list-group-item 5GB de almacenamiento
+							li.list-group-item Dominio propio
+						a(href="/signup").btn.btn-custom Registrarse
+			.col-12.col-md-4.mb-2
+				.card.custom-card
+					.card-body
+						h2.card-title Corporativo
+						h4.card-price 50
+							span.month €/mes
+						ul.list-group.list-group-flush
+							li.list-group-item 5 workspace
+							li.list-group-item 20000 visitas
+							li.list-group-item 20GB de almacenamiento
+							li.list-group-item Dominio propio
+						a(href="/signup").btn.btn-custom Registrarse
+	section.container-fluid#requirements
+		.row
+			.col-12.text-center.pt-5
+				h2 Descarga la app
+				.codeqr-wrapper(data-toggle="modal" data-target="#downloadApk")
+					img(src="./dist/img/chart.png", alt="")
+					.codeqr-view-expand
+						span 
+							i.fas.fa-search-plus
+				div
+					p Descarga la app con los requisitos escaneando el codigo Qr
+					p Esta app contiene la integracion de jQuery Mobile y esta hecha con phoneGap
+	footer.container-fluid.footer
+		div.footer
+			p.copyright.text-center.text-white © 2019 Oscar Garcia
+
+
+	
+	

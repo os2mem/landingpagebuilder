@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-light
+    a(href="/").nav-link
+      i.fas.fa-arrow-left
+      | Regresar
+    a.navbar-brand(href="#") Vieweb
+  section.container-fluid
+    form(action="/login" method="POST")#login-user.form-wrapper
+      .login-brand
+        h1 Vieweb
+      .card.card-form
+        .card-body
+          div.form-group
+            label(for="emailLogin").label Email
+            input(type="email" class="form-control" id="emailLogin" name="useremail" aria-describedby="emailHelp" placeholder="Enter email" required)
+          div.form-group
+            label(for="passwordLogin").label Contraseña
+            input(type="password" class="form-control" id="passwordLogin" name="password" placeholder="Password" required)
+          button(type="submit" class="btn btn-custom") Entrar
+      div.pt-2
+        p Necesitas una cuenta? 
+          a(href="/signup").signup-link Registrate
+          

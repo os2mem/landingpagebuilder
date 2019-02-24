@@ -1,0 +1,29 @@
+extends layout.pug
+
+block content
+  include components/dashboard-bar.pug
+  section.container-fluid.container-files
+    table.table
+      thead
+        tr
+          th
+          th(scope="col") Nombre
+          th(scope="col") Tamaño
+          th
+      tbody#modal-files-content
+        each file in files
+          tr(data-imglocation=`/dist/files/${userDir}/${file}`, data-bg="image").img-files
+            td.img-preview-td
+              span.img-preview
+                img(src=`/dist/files/${userDir}/${file.name}`, alt="")
+            td
+              span.img-title= file.name
+            td= file.size
+            td
+      tfoot
+        td
+        td
+        td
+        td.text-right
+          button(type="button").upload-file#upload-file.btn.btn-primary.mx-auto Subir imagen
+  script(src="js/dashboard.bundle.js")

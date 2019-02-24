@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+  include components/dashboard-bar.pug
+  section#dashboard.container-fluid
+    ul#dashboard-list.dashboard-list
+      li.dashboard-list-item
+        a.dashboard-list-link(href="/manage-files")
+          span.icon-wrapper.files-manager
+            i.fas.fa-folder-open
+        span Archivos
+      li.dashboard-list-item
+        a.dashboard-list-link(href="/create-landing")
+          span.icon-wrapper.create-landing
+            i.fas.fa-pencil-ruler
+        span Crear Pagina
+  script(src="js/dashboard.bundle.js")

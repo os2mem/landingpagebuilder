@@ -1,0 +1,29 @@
+extends layout.pug
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-light
+    a(href="/").nav-link
+      i.fas.fa-arrow-left
+      | Regresar
+    a.navbar-brand(href="#") Vieweb
+  section.container-fluid
+    form(action="/signup" method="POST")#login-user.form-wrapper
+      .login-brand
+        h1 Registro
+      .card.card-form
+        .card-body
+          div.form-group
+            label(for="nameSignUp").label Nombre
+            input(type="text" class="form-control" id="nameSignUp" name="username" aria-describedby="emailHelp" placeholder="Pepe Gracia")
+          div.form-group
+            label(for="emailSignUp").label Email 
+            input(type="email" class="form-control" id="emailSignUp" name="useremail" aria-describedby="emailHelp" placeholder="p.garcia@email.com")
+          div.form-group
+            label(for="passwordSignUp").label Contraseña
+            input(type="password" class="form-control" id="passwordSignUp" name="password" placeholder="contraseña")
+          input(type="hidden" name="userDir" value=`${Date.now()}`)
+          button(type="submit" class="btn btn-custom") Registrarse
+      div.pt-2
+        p Ya tienes una cuenta? 
+          a(href="/login").signup-link Entra
+          

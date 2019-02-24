@@ -1,0 +1,5 @@
+#toolbar-wrapper.toolbar-wrapper
+  nav#toolbar.toolbar
+    ul.toolbar-list#toolbar-list
+      each tool in toolbar.tools
+        +toolbutton(tool.title, tool.name, tool.icon)

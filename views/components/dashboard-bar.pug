@@ -1,0 +1,24 @@
+#dashboard-bar-container.dashboard-bar-container
+  nav#dashboard-navbar.dashboard-navbar
+    #dashboard-brand-container.dashboard-brand-container
+      if bodyClass === 'body-manage-files'
+        a(href="/dashboard").dashboard-brand 
+          i.fas.fa-arrow-left
+          | Regresar
+      else
+        a(href="/dashboard").dashboard-brand Vieweb
+    #dashboard-profile-container.dashboard-profile-container
+      #dashboard-profile.dashboard-profile
+        .profile-pic
+          i.fas.fa-user
+        p.profile-user-name= username 
+           button(type="button")#profile-option-dropdown-button.profile-option-dropdown-button
+            i.fas.fa-caret-down
+        div#dashboard-profile-dropdown.dashboard-profile-dropdown
+          #profile-option-dropdown.profile-option-dropdown
+            ul.profile-option-list#profile-option-list 
+              li.profile-option-list-item
+                a(href="/logout").btn.btn-logout
+                  i.fas.fa-sign-out-alt
+                  span Salir
+   
